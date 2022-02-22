@@ -2,7 +2,7 @@ package square
 
 import "math"
 
-type Number float64
+type Number int
 
 const (
 	SidesTriangle Number = 3
@@ -11,14 +11,14 @@ const (
 )
 
 func CalcSquare(sideLen float64, sidesNum Number) float64 {
-	if sidesNum == SidesTriangle {
-		return math.Sqrt(3) * (float64(sideLen) * float64(sideLen)) / 4
+	switch sidesNum {
+	case SidesTriangle:
+		return (math.Sqrt(3) * math.Pow(sideLen, 2)) / 4
+	case SidesCircle:
+		return math.Pi * math.Pow(sideLen, 2)
+	case SidesSquare:
+		return math.Pow(sideLen, 2)
+	default:
+		return 0
 	}
-	if sidesNum == SidesCircle {
-		return math.Pi * sideLen * sideLen
-	}
-	if sidesNum == SidesSquare {
-		return sideLen * float64(SidesSquare)
-	}
-	return 0
 }
