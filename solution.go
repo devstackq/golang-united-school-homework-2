@@ -12,12 +12,12 @@ const (
 
 func CalcSquare(sideLen float64, sidesNum Number) float64 {
 	if sidesNum == SidesTriangle {
-		return math.Sqrt(float64(sidesNum)) * (float64(sideLen) * float64(sideLen)) / 4
-	}
-	if sidesNum == SidesSquare {
-		return math.Pi * sideLen * sideLen
+		return math.Sqrt(3) * (float64(sideLen) * float64(sideLen)) / 4
 	}
 	if sidesNum == SidesCircle {
+		return math.Pi * sideLen * sideLen
+	}
+	if sidesNum == SidesSquare {
 		return sideLen * float64(SidesSquare)
 	}
 	return 0
